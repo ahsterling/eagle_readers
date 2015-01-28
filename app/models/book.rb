@@ -7,9 +7,9 @@ class Book < ActiveRecord::Base
     self.save
   end
 
-  def self.search(search)
+  def self.search(attribute, search)
     if search
-      @books = Book.where('title ILIKE ?', search)
+      @books = Book.where("#{attribute} ILIKE ?", search)
     else
       @books = Book.all
     end

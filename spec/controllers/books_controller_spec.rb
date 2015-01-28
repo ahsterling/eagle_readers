@@ -5,12 +5,12 @@ describe BooksController do
   let(:book) {Book.create(title: "The Great Gatsby")}
   describe 'GET #index' do
     it 'populates an array of messages' do
-      get :index
+      get :index, search: nil, attribute: nil
       expect(assigns(:books)).to match_array [book]
     end
 
     it 'renders the #index view' do
-      get :index
+      get :index, search: nil, attribute: nil
       expect(response).to render_template :index
     end
   end
