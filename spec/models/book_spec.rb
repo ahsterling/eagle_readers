@@ -27,10 +27,19 @@ describe Book do
   end
 
   describe '#self.search(attribute, search)' do
+    let(:book1) {Book.create(title: "Dogs", author: "Johnson, Ben")}
+    let(:book2) {Book.create(title: "Cats", author: "Schroeder, Pete")}
+
     it 'searches for book with dogs in title' do
-      book = Book.create(title: "Dogs")
-      book2 = Book.create(title: "Cats")
-      expect(Book.search("title", "Dogs")).to eq [Book.find(book.id)]
+      expect(Book.search("title", "Dogs")).to eq [book1]
+    end
+
+    it 'searches for book with Johnson in author' do
+      expect(Book.search("author", "Schroeder, Pete")).to eq [book2]
+    end
+
+    it 'finds no results for search that does not match' do
+      expect(Book.search("title", "Dinosaurs")).to eq []
     end
   end
 end
