@@ -25,4 +25,8 @@ describe Book do
       expect(Book.find(book.id).title).to eq "Volcano : the eruption and healing of Mount St. Helens"
     end
   end
+
+  describe '#search' do
+
+  end
 end
