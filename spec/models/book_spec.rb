@@ -41,5 +41,11 @@ describe Book do
     it 'finds no results for search that does not match' do
       expect(Book.search("title", "Dinosaurs")).to eq []
     end
+
+    context "fuzzy search" do
+      it 'finds a book with only dog in title' do
+        expect(Book.search("title", "dog")).to eq [book1]
+      end
+    end
   end
 end
