@@ -46,6 +46,10 @@ describe Book do
       it 'finds a book with only dog in title' do
         expect(Book.search("title", "dog")).to eq [book1]
       end
+
+      it 'finds a book with only pete in author' do
+        expect(Book.search("author", "pete")).to eq [book2]
+      end
     end
   end
 end
