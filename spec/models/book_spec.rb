@@ -26,7 +26,11 @@ describe Book do
     end
   end
 
-  describe '#search' do
-
+  describe '#self.search(search)' do
+    it 'searches for book with dogs in title' do
+      book = Book.create(title: "Dogs")
+      book2 = Book.create(title: "Cats")
+      expect(Book.search("Dogs")).to eq [Book.find(book.id)]
+    end
   end
 end

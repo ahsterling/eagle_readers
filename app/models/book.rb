@@ -6,4 +6,12 @@ class Book < ActiveRecord::Base
     self.title = new_title
     self.save
   end
+
+  def self.search(search)
+    if search
+      @books = Book.where('title ILIKE ?', search)
+    else
+      @books = Book.all
+    end
+  end
 end
