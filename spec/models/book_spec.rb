@@ -18,5 +18,11 @@ describe Book do
       book.better_title
       expect(Book.find(book.id).title).to eq "Martin the Warrior"
     end
+
+    it 'reformats title attribute when there is not extra space on end' do
+      book = Book.new(title: "Volcano : the eruption and healing of Mount St. Helens /")
+      book.better_title
+      expect(Book.find(book.id).title).to eq "Volcano : the eruption and healing of Mount St. Helens"
+    end
   end
 end
