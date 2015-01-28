@@ -6,4 +6,9 @@ describe BooksController do
     get :index
     expect(assigns(:books)).to match_array [book]
   end
+
+  it 'renders the #index view' do
+    get :index
+    expect(response).to render_template :index
+  end
 end
