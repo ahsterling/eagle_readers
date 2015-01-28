@@ -11,21 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128174344) do
+ActiveRecord::Schema.define(version: 20150128174910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "titles", force: :cascade do |t|
+  create_table "books", force: :cascade do |t|
+    t.string   "title"
     t.string   "author"
     t.text     "description"
     t.datetime "pub_date"
     t.integer  "pages"
     t.string   "isbn"
-    t.string   "subject_array", default: [],              array: true
+    t.string   "subject_array"
     t.integer  "genre_id"
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
 end
